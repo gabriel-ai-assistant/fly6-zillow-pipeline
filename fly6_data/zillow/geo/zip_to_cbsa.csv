@@ -1,0 +1,6 @@
+zip,cbsa,cbsa_name,state,res_ratio,bus_ratio,oth_ratio
+75069,19100,Dallas-Fort Worth-Arlington,TX,0.90,0.05,0.05
+94107,41860,San Francisco-Oakland-Berkeley,CA,0.92,0.04,0.04
+10001,35620,New York-Newark-Jersey City,NY,0.88,0.08,0.04
+60614,16980,Chicago-Naperville-Elgin,IL,0.91,0.06,0.03
+80202,19740,Denver-Aurora-Lakewood,CO,0.89,0.08,0.03

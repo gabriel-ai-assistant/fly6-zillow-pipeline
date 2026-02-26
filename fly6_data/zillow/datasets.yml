@@ -1,0 +1,65 @@
+datasets:
+  - series_key: zhvi_zip_allhomes
+    category: zhvi
+    geo_level: zip
+    unit: usd
+    series_name: Zillow Home Value Index (ZIP)
+    required_for: ltr
+    enabled: true
+    source_url: https://www.zillow.com/research/data/
+  - series_key: zori_zip_allhomes
+    category: zori
+    geo_level: zip
+    unit: usd
+    series_name: Zillow Observed Rent Index (ZIP)
+    required_for: ltr
+    enabled: true
+    source_url: https://www.zillow.com/research/data/
+  - series_key: sale_to_list_metro
+    category: dynamics
+    geo_level: metro
+    unit: ratio
+    series_name: Sale-to-list ratio (Metro)
+    required_for: flip
+    enabled: true
+    source_url: https://www.zillow.com/research/data/
+  - series_key: market_temp_metro
+    category: dynamics
+    geo_level: metro
+    unit: index
+    series_name: Market heat (Metro)
+    required_for: flip
+    enabled: true
+    source_url: https://www.zillow.com/research/data/
+  - series_key: price_cuts_metro
+    category: dynamics
+    geo_level: metro
+    unit: pct
+    series_name: Price cuts (Metro)
+    required_for: flip
+    enabled: true
+    source_url: https://www.zillow.com/research/data/
+  - series_key: inv_metro
+    category: dynamics
+    geo_level: metro
+    unit: homes
+    series_name: Inventory (Metro)
+    required_for: flip
+    enabled: true
+    source_url: https://www.zillow.com/research/data/
+  - series_key: days_pending_metro
+    category: dynamics
+    geo_level: metro
+    unit: days
+    series_name: Days to pending (Metro)
+    required_for: flip
+    enabled: true
+    source_url: https://www.zillow.com/research/data/
+  - series_key: zhvf_zip_allhomes
+    category: forecast
+    geo_level: zip
+    unit: pct
+    series_name: Forecast (ZIP)
+    required_for: flip
+    enabled: true
+    source_url: https://www.zillow.com/research/data/

@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  zillow-pipeline:
+    build: .
+    container_name: zillow-pipeline
+    restart: always
+    ports:
+      - "8471:8471"
+    volumes:
+      - /home/gabriel/fly6_data:/data
+    environment:
+      - ZILLOW_DATA_ROOT=/data/zillow
+      - ZILLOW_DB_PATH=/data/zillow/db/zillow.sqlite
+      - API_PORT=8471
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8471/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
