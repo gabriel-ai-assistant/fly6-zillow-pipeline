@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+fly6_data/zillow/db/zillow.sqlite
+fly6_data/zillow/logs/*.json
