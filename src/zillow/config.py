@@ -5,6 +5,7 @@ from pathlib import Path
 
 
 DEFAULT_ROOT = Path("fly6_data") / "zillow"
+PACKAGE_ROOT = Path(__file__).resolve().parents[2] / "fly6_data" / "zillow"
 
 
 def data_root() -> Path:
@@ -16,11 +17,13 @@ def db_path() -> Path:
 
 
 def datasets_path() -> Path:
-    return data_root() / "datasets.yml"
+    primary = data_root() / "datasets.yml"
+    return primary if primary.exists() else (PACKAGE_ROOT / "datasets.yml")
 
 
 def schema_path() -> Path:
-    return data_root() / "db" / "schema.sql"
+    primary = data_root() / "db" / "schema.sql"
+    return primary if primary.exists() else (PACKAGE_ROOT / "db" / "schema.sql")
 
 
 def logs_dir() -> Path:
