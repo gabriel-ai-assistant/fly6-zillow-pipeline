@@ -48,3 +48,11 @@ API_PORT = int(os.getenv('API_PORT', '8471'))
 def ensure_data_dirs() -> None:
     for path in (DATA_ROOT, DB_PATH.parent, RAW_DIR, GEO_DIR, LOGS_DIR):
         path.mkdir(parents=True, exist_ok=True)
+
+# Alias for Agent 4 compatibility
+db_path = DB_PATH
+data_root = DATA_ROOT
+datasets_yml_path = DATASETS_YML_PATH
+raw_dir = RAW_DIR
+geo_dir = GEO_DIR
+logs_dir = LOGS_DIR
