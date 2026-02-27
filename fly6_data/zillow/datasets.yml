@@ -1,323 +1,450 @@
 datasets:
-  - series_key: zhvi_zip_sfr
-    category: zhvi
-    geo_level: zip
-    unit: usd
-    series_name: "ZHVI Single-Family Residence (ZIP, smoothed, seasonally adjusted)"
-    required_for: both
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/Zip_zhvi_uc_sfr_sm_sa_month.csv
-    url_pattern_hint: "public_csvs/zhvi/Zip_zhvi_uc_sfr_*_sm_sa_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName, State, City, Metro, CountyName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: zhvi_zip_allhomes
-    category: zhvi
-    geo_level: zip
-    unit: usd
-    series_name: "ZHVI All Homes (ZIP, smoothed, seasonally adjusted)"
-    required_for: both
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/Zip_zhvi_uc_sfrcondo_sm_sa_month.csv
-    url_pattern_hint: "public_csvs/zhvi/Zip_zhvi_uc_sfrcondo_*_sm_sa_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName, State, City, Metro, CountyName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: zhvi_zip_condo
-    category: zhvi
-    geo_level: zip
-    unit: usd
-    series_name: "ZHVI Condo/Co-op (ZIP, smoothed, seasonally adjusted)"
-    required_for: both
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/Zip_zhvi_uc_condo_sm_sa_month.csv
-    url_pattern_hint: "public_csvs/zhvi/Zip_zhvi_uc_condo_*_sm_sa_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName, State, City, Metro, CountyName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: zhvi_metro_allhomes
-    category: zhvi
-    geo_level: metro
-    unit: usd
-    series_name: "ZHVI All Homes (Metro, smoothed, seasonally adjusted)"
-    required_for: both
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/Metro_zhvi_uc_sfrcondo_sm_sa_month.csv
-    url_pattern_hint: "public_csvs/zhvi/Metro_zhvi_uc_sfrcondo_*_sm_sa_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: zhvi_metro_sfr
-    category: zhvi
-    geo_level: metro
-    unit: usd
-    series_name: "ZHVI Single-Family Residence (Metro, smoothed, seasonally adjusted)"
-    required_for: both
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/Metro_zhvi_uc_sfr_sm_sa_month.csv
-    url_pattern_hint: "public_csvs/zhvi/Metro_zhvi_uc_sfr_*_sm_sa_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: zhvi_city_allhomes
-    category: zhvi
-    geo_level: city
-    unit: usd
-    series_name: "ZHVI All Homes (City, smoothed, seasonally adjusted)"
-    required_for: both
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/City_zhvi_uc_sfrcondo_sm_sa_month.csv
-    url_pattern_hint: "public_csvs/zhvi/City_zhvi_uc_sfrcondo_*_sm_sa_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName, State, Metro, CountyName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: zhvi_county_allhomes
-    category: zhvi
-    geo_level: county
-    unit: usd
-    series_name: "ZHVI All Homes (County, smoothed, seasonally adjusted)"
-    required_for: both
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/County_zhvi_uc_sfrcondo_sm_sa_month.csv
-    url_pattern_hint: "public_csvs/zhvi/County_zhvi_uc_sfrcondo_*_sm_sa_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName, State, Metro, StateCodeFIPS, MunicipalCodeFIPS]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: zhvi_state_allhomes
-    category: zhvi
-    geo_level: state
-    unit: usd
-    series_name: "ZHVI All Homes (State, smoothed, seasonally adjusted)"
-    required_for: both
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/State_zhvi_uc_sfrcondo_sm_sa_month.csv
-    url_pattern_hint: "public_csvs/zhvi/State_zhvi_uc_sfrcondo_*_sm_sa_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: zori_zip_allhomes
-    category: zori
-    geo_level: zip
-    unit: usd_per_month
-    series_name: "ZORI All Homes + Multifamily (ZIP, smoothed)"
-    required_for: ltr
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/zori/Zip_zori_uc_sfrcondomfr_sm_month.csv
-    url_pattern_hint: "public_csvs/zori/Zip_zori_uc_sfrcondomfr_sm_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName, State, City, Metro, CountyName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: zori_zip_sfr
-    category: zori
-    geo_level: zip
-    unit: usd_per_month
-    series_name: "ZORI ZIP SFR proxy (SA variant; Zillow ZIP SFR file not currently published)"
-    required_for: ltr
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/zori/Zip_zori_uc_sfrcondomfr_sm_sa_month.csv
-    url_pattern_hint: "public_csvs/zori/Zip_zori_uc_sfrcondomfr_sm_sa_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName, State, City, Metro, CountyName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-    parser_notes: "As of 2026-02-26, Zillow public CSVs expose ZIP ZORI as SFR+Condo+MFR only; this series uses the SA ZIP feed as SFR proxy."
-
-  - series_key: zori_metro_allhomes
-    category: zori
-    geo_level: metro
-    unit: usd_per_month
-    series_name: "ZORI All Homes + Multifamily (Metro, smoothed)"
-    required_for: ltr
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/zori/Metro_zori_uc_sfrcondomfr_sm_month.csv
-    url_pattern_hint: "public_csvs/zori/Metro_zori_uc_sfrcondomfr_sm_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: zori_metro_sfr
-    category: zori
-    geo_level: metro
-    unit: usd_per_month
-    series_name: "ZORI Single-Family Residence (Metro, smoothed)"
-    required_for: ltr
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/zori/Metro_zori_uc_sfr_sm_month.csv
-    url_pattern_hint: "public_csvs/zori/Metro_zori_uc_sfr_sm_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: zhvf_zip
-    category: zhvf
-    geo_level: zip
-    unit: pct
-    series_name: "ZHVF growth forecast (ZIP, smoothed, seasonally adjusted)"
-    required_for: both
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/zhvf_growth/Zip_zhvf_growth_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv
-    url_pattern_hint: "public_csvs/zhvf_growth/Zip_zhvf_growth_uc_sfrcondo_*_sm_sa_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName, State, City, Metro, CountyName, BaseDate]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: zhvf_metro
-    category: zhvf
-    geo_level: metro
-    unit: pct
-    series_name: "ZHVF growth forecast (Metro, smoothed, seasonally adjusted)"
-    required_for: both
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/zhvf_growth/Metro_zhvf_growth_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv
-    url_pattern_hint: "public_csvs/zhvf_growth/Metro_zhvf_growth_uc_sfrcondo_*_sm_sa_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName, BaseDate]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: inv_metro
-    category: dynamics
-    geo_level: metro
-    unit: index
-    series_name: "For-sale inventory (Metro, smoothed)"
-    required_for: flip
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/invt_fs/Metro_invt_fs_uc_sfrcondo_sm_month.csv
-    url_pattern_hint: "public_csvs/invt_fs/Metro_invt_fs_uc_sfrcondo_sm_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: new_listings_metro
-    category: dynamics
-    geo_level: metro
-    unit: index
-    series_name: "New listings (Metro, smoothed)"
-    required_for: flip
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/new_listings/Metro_new_listings_uc_sfrcondo_sm_month.csv
-    url_pattern_hint: "public_csvs/new_listings/Metro_new_listings_uc_sfrcondo_sm_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: price_cuts_metro
-    category: dynamics
-    geo_level: metro
-    unit: pct
-    series_name: "Share of listings with price cut (Metro, smoothed)"
-    required_for: flip
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/perc_listings_price_cut/Metro_perc_listings_price_cut_uc_sfrcondo_sm_month.csv
-    url_pattern_hint: "public_csvs/perc_listings_price_cut/Metro_perc_listings_price_cut_uc_sfrcondo_sm_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: sale_to_list_metro
-    category: dynamics
-    geo_level: metro
-    unit: ratio
-    series_name: "Median sale-to-list ratio (Metro, smoothed)"
-    required_for: flip
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/median_sale_to_list/Metro_median_sale_to_list_uc_sfrcondo_sm_month.csv
-    url_pattern_hint: "public_csvs/median_sale_to_list/Metro_median_sale_to_list_uc_sfrcondo_sm_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: days_pending_metro
-    category: dynamics
-    geo_level: metro
-    unit: days
-    series_name: "Median days to pending (Metro, smoothed)"
-    required_for: flip
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/med_doz_pending/Metro_med_doz_pending_uc_sfrcondo_sm_month.csv
-    url_pattern_hint: "public_csvs/med_doz_pending/Metro_med_doz_pending_uc_sfrcondo_sm_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: days_close_metro
-    category: dynamics
-    geo_level: metro
-    unit: days
-    series_name: "Median days to close (Metro, smoothed)"
-    required_for: flip
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/median_days_to_close/Metro_median_days_to_close_uc_sfrcondo_sm_month.csv
-    url_pattern_hint: "public_csvs/median_days_to_close/Metro_median_days_to_close_uc_sfrcondo_sm_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: list_price_cut_metro
-    category: dynamics
-    geo_level: metro
-    unit: usd
-    series_name: "Median list price cut amount (Metro, smoothed)"
-    required_for: flip
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/med_listings_price_cut_amt/Metro_med_listings_price_cut_amt_uc_sfrcondo_sm_month.csv
-    url_pattern_hint: "public_csvs/med_listings_price_cut_amt/Metro_med_listings_price_cut_amt_uc_sfrcondo_sm_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: market_temp_metro
-    category: dynamics
-    geo_level: metro
-    unit: index
-    series_name: "Market temperature index (Metro)"
-    required_for: flip
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/market_temp_index/Metro_market_temp_index_uc_sfrcondo_month.csv
-    url_pattern_hint: "public_csvs/market_temp_index/Metro_market_temp_index_uc_sfrcondo_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
-
-  - series_key: median_list_price_metro
-    category: dynamics
-    geo_level: metro
-    unit: usd
-    series_name: "Median list price (Metro, smoothed)"
-    required_for: flip
-    enabled: true
-    source_url: https://files.zillowstatic.com/research/public_csvs/mlp/Metro_mlp_uc_sfrcondo_sm_month.csv
-    url_pattern_hint: "public_csvs/mlp/Metro_mlp_uc_sfrcondo_sm_month.csv"
-    region_id_column: RegionID
-    region_name_column: RegionName
-    region_columns: [RegionID, SizeRank, RegionName, RegionType, StateName]
-    date_column_regex: "^\\d{4}-\\d{2}-\\d{2}$"
+- series_key: zhvi_zip_sfr
+  category: zhvi
+  geo_level: zip
+  unit: usd
+  series_name: ZHVI Single-Family Residence (ZIP, smoothed, seasonally adjusted)
+  required_for: both
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/Zip_zhvi_uc_sfr_sm_sa_month.csv
+  url_pattern_hint: public_csvs/zhvi/Zip_zhvi_uc_sfr_*_sm_sa_month.csv
+  region_id_column: RegionName
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  - State
+  - City
+  - Metro
+  - CountyName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: zhvi_zip_allhomes
+  category: zhvi
+  geo_level: zip
+  unit: usd
+  series_name: ZHVI All Homes (ZIP, smoothed, seasonally adjusted)
+  required_for: both
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/Zip_zhvi_uc_sfrcondo_sm_sa_month.csv
+  url_pattern_hint: public_csvs/zhvi/Zip_zhvi_uc_sfrcondo_*_sm_sa_month.csv
+  region_id_column: RegionName
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  - State
+  - City
+  - Metro
+  - CountyName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: zhvi_zip_condo
+  category: zhvi
+  geo_level: zip
+  unit: usd
+  series_name: ZHVI Condo/Co-op (ZIP, smoothed, seasonally adjusted)
+  required_for: both
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/Zip_zhvi_uc_condo_sm_sa_month.csv
+  url_pattern_hint: public_csvs/zhvi/Zip_zhvi_uc_condo_*_sm_sa_month.csv
+  region_id_column: RegionName
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  - State
+  - City
+  - Metro
+  - CountyName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: zhvi_metro_allhomes
+  category: zhvi
+  geo_level: metro
+  unit: usd
+  series_name: ZHVI All Homes (Metro, smoothed, seasonally adjusted)
+  required_for: both
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/Metro_zhvi_uc_sfrcondo_sm_sa_month.csv
+  url_pattern_hint: public_csvs/zhvi/Metro_zhvi_uc_sfrcondo_*_sm_sa_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: zhvi_metro_sfr
+  category: zhvi
+  geo_level: metro
+  unit: usd
+  series_name: ZHVI Single-Family Residence (Metro, smoothed, seasonally adjusted)
+  required_for: both
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/Metro_zhvi_uc_sfr_sm_sa_month.csv
+  url_pattern_hint: public_csvs/zhvi/Metro_zhvi_uc_sfr_*_sm_sa_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: zhvi_city_allhomes
+  category: zhvi
+  geo_level: city
+  unit: usd
+  series_name: ZHVI All Homes (City, smoothed, seasonally adjusted)
+  required_for: both
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/City_zhvi_uc_sfrcondo_sm_sa_month.csv
+  url_pattern_hint: public_csvs/zhvi/City_zhvi_uc_sfrcondo_*_sm_sa_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  - State
+  - Metro
+  - CountyName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: zhvi_county_allhomes
+  category: zhvi
+  geo_level: county
+  unit: usd
+  series_name: ZHVI All Homes (County, smoothed, seasonally adjusted)
+  required_for: both
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/County_zhvi_uc_sfrcondo_sm_sa_month.csv
+  url_pattern_hint: public_csvs/zhvi/County_zhvi_uc_sfrcondo_*_sm_sa_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  - State
+  - Metro
+  - StateCodeFIPS
+  - MunicipalCodeFIPS
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: zhvi_state_allhomes
+  category: zhvi
+  geo_level: state
+  unit: usd
+  series_name: ZHVI All Homes (State, smoothed, seasonally adjusted)
+  required_for: both
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/zhvi/State_zhvi_uc_sfrcondo_sm_sa_month.csv
+  url_pattern_hint: public_csvs/zhvi/State_zhvi_uc_sfrcondo_*_sm_sa_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: zori_zip_allhomes
+  category: zori
+  geo_level: zip
+  unit: usd_per_month
+  series_name: ZORI All Homes + Multifamily (ZIP, smoothed)
+  required_for: ltr
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/zori/Zip_zori_uc_sfrcondomfr_sm_month.csv
+  url_pattern_hint: public_csvs/zori/Zip_zori_uc_sfrcondomfr_sm_month.csv
+  region_id_column: RegionName
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  - State
+  - City
+  - Metro
+  - CountyName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: zori_zip_sfr
+  category: zori
+  geo_level: zip
+  unit: usd_per_month
+  series_name: ZORI ZIP SFR proxy (SA variant; Zillow ZIP SFR file not currently published)
+  required_for: ltr
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/zori/Zip_zori_uc_sfrcondomfr_sm_sa_month.csv
+  url_pattern_hint: public_csvs/zori/Zip_zori_uc_sfrcondomfr_sm_sa_month.csv
+  region_id_column: RegionName
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  - State
+  - City
+  - Metro
+  - CountyName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+  parser_notes: As of 2026-02-26, Zillow public CSVs expose ZIP ZORI as SFR+Condo+MFR
+    only; this series uses the SA ZIP feed as SFR proxy.
+- series_key: zori_metro_allhomes
+  category: zori
+  geo_level: metro
+  unit: usd_per_month
+  series_name: ZORI All Homes + Multifamily (Metro, smoothed)
+  required_for: ltr
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/zori/Metro_zori_uc_sfrcondomfr_sm_month.csv
+  url_pattern_hint: public_csvs/zori/Metro_zori_uc_sfrcondomfr_sm_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: zori_metro_sfr
+  category: zori
+  geo_level: metro
+  unit: usd_per_month
+  series_name: ZORI Single-Family Residence (Metro, smoothed)
+  required_for: ltr
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/zori/Metro_zori_uc_sfr_sm_month.csv
+  url_pattern_hint: public_csvs/zori/Metro_zori_uc_sfr_sm_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: zhvf_zip
+  category: zhvf
+  geo_level: zip
+  unit: pct
+  series_name: ZHVF growth forecast (ZIP, smoothed, seasonally adjusted)
+  required_for: both
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/zhvf_growth/Zip_zhvf_growth_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv
+  url_pattern_hint: public_csvs/zhvf_growth/Zip_zhvf_growth_uc_sfrcondo_*_sm_sa_month.csv
+  region_id_column: RegionName
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  - State
+  - City
+  - Metro
+  - CountyName
+  - BaseDate
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: zhvf_metro
+  category: zhvf
+  geo_level: metro
+  unit: pct
+  series_name: ZHVF growth forecast (Metro, smoothed, seasonally adjusted)
+  required_for: both
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/zhvf_growth/Metro_zhvf_growth_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv
+  url_pattern_hint: public_csvs/zhvf_growth/Metro_zhvf_growth_uc_sfrcondo_*_sm_sa_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  - BaseDate
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: inv_metro
+  category: dynamics
+  geo_level: metro
+  unit: index
+  series_name: For-sale inventory (Metro, smoothed)
+  required_for: flip
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/invt_fs/Metro_invt_fs_uc_sfrcondo_sm_month.csv
+  url_pattern_hint: public_csvs/invt_fs/Metro_invt_fs_uc_sfrcondo_sm_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: new_listings_metro
+  category: dynamics
+  geo_level: metro
+  unit: index
+  series_name: New listings (Metro, smoothed)
+  required_for: flip
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/new_listings/Metro_new_listings_uc_sfrcondo_sm_month.csv
+  url_pattern_hint: public_csvs/new_listings/Metro_new_listings_uc_sfrcondo_sm_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: price_cuts_metro
+  category: dynamics
+  geo_level: metro
+  unit: pct
+  series_name: Share of listings with price cut (Metro, smoothed)
+  required_for: flip
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/perc_listings_price_cut/Metro_perc_listings_price_cut_uc_sfrcondo_sm_month.csv
+  url_pattern_hint: public_csvs/perc_listings_price_cut/Metro_perc_listings_price_cut_uc_sfrcondo_sm_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: sale_to_list_metro
+  category: dynamics
+  geo_level: metro
+  unit: ratio
+  series_name: Median sale-to-list ratio (Metro, smoothed)
+  required_for: flip
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/median_sale_to_list/Metro_median_sale_to_list_uc_sfrcondo_sm_month.csv
+  url_pattern_hint: public_csvs/median_sale_to_list/Metro_median_sale_to_list_uc_sfrcondo_sm_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: days_pending_metro
+  category: dynamics
+  geo_level: metro
+  unit: days
+  series_name: Median days to pending (Metro, smoothed)
+  required_for: flip
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/med_doz_pending/Metro_med_doz_pending_uc_sfrcondo_sm_month.csv
+  url_pattern_hint: public_csvs/med_doz_pending/Metro_med_doz_pending_uc_sfrcondo_sm_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: days_close_metro
+  category: dynamics
+  geo_level: metro
+  unit: days
+  series_name: Median days to close (Metro, smoothed)
+  required_for: flip
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/median_days_to_close/Metro_median_days_to_close_uc_sfrcondo_sm_month.csv
+  url_pattern_hint: public_csvs/median_days_to_close/Metro_median_days_to_close_uc_sfrcondo_sm_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: list_price_cut_metro
+  category: dynamics
+  geo_level: metro
+  unit: usd
+  series_name: Median list price cut amount (Metro, smoothed)
+  required_for: flip
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/med_listings_price_cut_amt/Metro_med_listings_price_cut_amt_uc_sfrcondo_sm_month.csv
+  url_pattern_hint: public_csvs/med_listings_price_cut_amt/Metro_med_listings_price_cut_amt_uc_sfrcondo_sm_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: market_temp_metro
+  category: dynamics
+  geo_level: metro
+  unit: index
+  series_name: Market temperature index (Metro)
+  required_for: flip
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/market_temp_index/Metro_market_temp_index_uc_sfrcondo_month.csv
+  url_pattern_hint: public_csvs/market_temp_index/Metro_market_temp_index_uc_sfrcondo_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
+- series_key: median_list_price_metro
+  category: dynamics
+  geo_level: metro
+  unit: usd
+  series_name: Median list price (Metro, smoothed)
+  required_for: flip
+  enabled: true
+  source_url: https://files.zillowstatic.com/research/public_csvs/mlp/Metro_mlp_uc_sfrcondo_sm_month.csv
+  url_pattern_hint: public_csvs/mlp/Metro_mlp_uc_sfrcondo_sm_month.csv
+  region_id_column: RegionID
+  region_name_column: RegionName
+  region_columns:
+  - RegionID
+  - SizeRank
+  - RegionName
+  - RegionType
+  - StateName
+  date_column_regex: ^\d{4}-\d{2}-\d{2}$
