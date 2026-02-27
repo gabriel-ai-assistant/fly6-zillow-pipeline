@@ -21,14 +21,19 @@ from src.zillow.ingest import init_db, ingest_all
 from src.zillow.verify_urls import verify_all as verify_urls_all
 
 # ── DB connection ──────────────────────────────────────────────────────────
-_conn: Optional[sqlite3.Connection] = None
+import threading
+
+_local = threading.local()
 
 def get_conn() -> sqlite3.Connection:
-    global _conn
-    if _conn is None:
-        _conn = sqlite3.connect(str(config.DB_PATH), check_same_thread=False)
-        _conn.row_factory = sqlite3.Row
-    return _conn
+    conn = getattr(_local, "conn", None)
+    if conn is None:
+        conn = sqlite3.connect(str(config.DB_PATH), check_same_thread=False)
+        conn.row_factory = sqlite3.Row
+        conn.execute("PRAGMA journal_mode=WAL;")
+        conn.execute("PRAGMA synchronous=NORMAL;")
+        _local.conn = conn
+    return conn
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
