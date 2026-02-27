@@ -61,3 +61,5 @@ CREATE TABLE IF NOT EXISTS run_log (
 CREATE INDEX IF NOT EXISTS idx_facts_series_geo ON zillow_facts(series_key, geo_level);
 CREATE INDEX IF NOT EXISTS idx_facts_region ON zillow_facts(region_id, series_key);
 CREATE INDEX IF NOT EXISTS idx_facts_date ON zillow_facts(date);
+
+CREATE INDEX IF NOT EXISTS idx_facts_sk_rid_date ON zillow_facts(series_key, region_id, date);
