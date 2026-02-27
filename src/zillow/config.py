@@ -56,3 +56,13 @@ datasets_yml_path = DATASETS_YML_PATH
 raw_dir = RAW_DIR
 geo_dir = GEO_DIR
 logs_dir = LOGS_DIR
+
+# Callable aliases needed by init_db.py
+def schema_path() -> Path:
+    p = REPO_ROOT / "fly6_data" / "zillow" / "db" / "schema.sql"
+    if p.exists():
+        return p
+    return DATA_ROOT / "db" / "schema.sql"
+
+def datasets_path() -> Path:
+    return DATASETS_YML_PATH
