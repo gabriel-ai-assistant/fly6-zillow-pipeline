@@ -42,8 +42,8 @@ def build_market_profile(conn, zip_code: str, strategy: str = None) -> dict:
     }
 
     strategy = None if strategy is None else strategy.lower().strip()
-    include_ltr = strategy in (None, "ltr", "both")
-    include_flip = strategy in (None, "flip", "both")
+    include_ltr = strategy in (None, "ltr")
+    include_flip = strategy in (None, "flip")
     ltr_row = None
 
     if include_ltr:

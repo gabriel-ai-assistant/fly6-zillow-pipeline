@@ -1,4 +1,7 @@
-__pycache__/
+*.sqlite
 *.pyc
-fly6_data/zillow/db/zillow.sqlite
-fly6_data/zillow/logs/*.json
+__pycache__/
+fly6_data/zillow/raw/
+fly6_data/zillow/logs/
+.env
+*.tmp

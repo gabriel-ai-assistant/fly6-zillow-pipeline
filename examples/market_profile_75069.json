@@ -1,0 +1,23 @@
+{
+  "zip": "75069",
+  "as_of": "2024-12-31",
+  "ltr": {
+    "zhvi": 380000,
+    "zori": 2100,
+    "gross_yield": 0.0663,
+    "zhvi_yoy": 0.025,
+    "zori_yoy": 0.038,
+    "data_available": true
+  },
+  "flip": {
+    "cbsa": "19100",
+    "metro_name": "Dallas-Fort Worth-Arlington, TX",
+    "sale_to_list": 0.972,
+    "market_heat": 58,
+    "price_cut_pct": 0.31,
+    "days_to_pending": 22,
+    "inventory": 28000,
+    "data_available": true
+  },
+  "flip_null_reason": null
+}

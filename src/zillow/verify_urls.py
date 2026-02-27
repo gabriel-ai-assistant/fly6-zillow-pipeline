@@ -1,65 +1,55 @@
 from __future__ import annotations
 
 import json
+import time
 from datetime import date
+from pathlib import Path
+from typing import Any
 
 import requests
-import yaml
 
-from .config import datasets_path, logs_dir
-
-
-def _required_for_mode(required_for: str, mode: str) -> bool:
-    if mode == "both":
-        return required_for in ("ltr", "flip", "both")
-    return required_for in (mode, "both")
+from .config import LOGS_DIR
+from .download import load_datasets
 
 
-def verify_all(mode: str = "both", timeout: int = 15) -> dict:
-    mode = (mode or "both").lower()
-    cfg = yaml.safe_load(datasets_path().read_text(encoding="utf-8")) or {}
-    checks = []
-    required_failures = []
-
-    for row in cfg.get("datasets", []):
-        if not row.get("enabled", True):
-            continue
-        series_key = row.get("series_key")
-        required_for = row.get("required_for", "both")
-        url = row.get("source_url")
-        required = _required_for_mode(required_for, mode)
-
+def verify_url(url: str) -> dict[str, Any]:
+    start = time.perf_counter()
+    status = None
+    ok = False
+    try:
+        response = requests.get(url, stream=True, timeout=20)
+        status = response.status_code
+        ok = response.status_code in {200, 206}
+        response.close()
+    except Exception:
         ok = False
-        status_code = None
-        error = None
-        try:
-            r = requests.get(url, timeout=timeout)
-            status_code = r.status_code
-            ok = r.ok
-        except Exception as exc:
-            error = str(exc)
+    elapsed_ms = int((time.perf_counter() - start) * 1000)
+    return {'url': url, 'status': status, 'ok': ok, 'ms': elapsed_ms}
 
-        result = {
-            "series_key": series_key,
-            "url": url,
-            "required": required,
-            "ok": ok,
-            "status_code": status_code,
-            "error": error,
-        }
-        checks.append(result)
-        if required and not ok:
-            required_failures.append(series_key)
 
-    out = {
-        "mode": mode,
-        "date": date.today().isoformat(),
-        "checks": checks,
-        "required_failed": required_failures,
-        "ok": len(required_failures) == 0,
-    }
-    logs_dir().mkdir(parents=True, exist_ok=True)
-    (logs_dir() / f"url_verify_{date.today().isoformat()}.json").write_text(
-        json.dumps(out, indent=2), encoding="utf-8"
-    )
-    return out
+def _mode_matches(required_for: str, mode: str) -> bool:
+    return mode == 'both' or required_for in (mode, 'both')
+
+
+def verify_all(mode: str, datasets_yml_path: str | Path | None = None) -> tuple[list[dict[str, Any]], int]:
+    datasets = load_datasets(datasets_yml_path) if datasets_yml_path else load_datasets()
+    datasets = [
+        d
+        for d in datasets
+        if d.get('enabled', True) and _mode_matches(d.get('required_for', 'both'), mode)
+    ]
+
+    results: list[dict[str, Any]] = []
+    for ds in datasets:
+        result = verify_url(ds['source_url'])
+        result.update({'series_key': ds.get('series_key'), 'required_for': ds.get('required_for')})
+        results.append(result)
+
+    run_date = date.today().isoformat()
+    log_path = Path(LOGS_DIR) / f'url_verify_{run_date}.json'
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    log_path.write_text(json.dumps(results, indent=2, sort_keys=True), encoding='utf-8')
+
+    failures = [r for r in results if not r['ok']]
+    exit_code = 1 if failures else 0
+    return results, exit_code
